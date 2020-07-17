@@ -50,7 +50,9 @@ RUN tar zxf /opt/elasticsearch.tar.gz --strip-components=1
 RUN sed -i -e 's/ES_DISTRIBUTION_TYPE=tar/ES_DISTRIBUTION_TYPE=docker/' /usr/share/elasticsearch/bin/elasticsearch-env
 RUN mkdir -p config config/jvm.options.d data logs
 RUN chmod 0775 config config/jvm.options.d data logs
-COPY config/elasticsearch.yml config/jvm.options config/log4j2.properties config/
+RUN sed -i "s/^-Xms.*$/-Xms256m/" config/jvm.options
+RUN sed -i "s/^-Xmx.*$/-Xmx256m/" config/jvm.options
+COPY config/elasticsearch.yml config/log4j2.properties config/
 RUN chmod 0660 config/elasticsearch.yml config/log4j2.properties
 
 ################################################################################
