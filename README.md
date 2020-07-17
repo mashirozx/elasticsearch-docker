@@ -1,5 +1,6 @@
 # elasticsearch-docker
-Mini Memory version of  Elasticsearch Docker image
+Mini memory version of  Elasticsearch Docker image.
+Deploy your Elasticsearch container with less than 1GB memory!
 
 Dockerhub: <https://hub.docker.com/r/mashirozx/elasticsearch-docker>
 
